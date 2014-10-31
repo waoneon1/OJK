@@ -1,0 +1,346 @@
+.jqm-demos img { max-width: 100%; }
+
+/* Page */
+a{
+    text-decoration: none;
+}
+body, .bd {
+	background:#828282 url("images/stripes.png") 0 0 repeat;
+	font-size: 1.05em;
+}
+.loginform{
+    background:#E2BA41 url("images/stripes.png") 0 0 repeat;
+    /*background:#E2BA41 url("images/bg.jpg") 0 0 repeat;*/
+    /*background-image: "images/bg.jpg";*/
+}
+.listf{
+	font-size: 15px;
+	 
+}
+#popupLogin{
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    background-color: #bbb;
+    /*margin-top: 50px;*/
+    margin: 150px auto 0;
+}
+#popupError{
+    margin: 0 auto 0;
+}
+a.solusi li p{
+    color: #1E1E1E;
+    font-size: 15px;
+    background-color: #E8E8F7;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+a.solusi li p:hover{
+    background-color: #CACAEC;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+#log{
+    font-size: 9px;
+    padding-left: 7px;
+    width: 100%;
+    float:left;
+    color: #FFFFFF;
+    text-decoration: none !important;
+    /*position: absolute;*/
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 1px 0 #000;
+}
+
+#goalval{
+	font-size: 11.5px;
+	margin-right: 5%;
+	color: #FFFFFF;
+    text-decoration: none !important;
+
+}
+
+.ckTitle{
+    text-align: center;
+    color: #74012D;
+    background-color: #ddd;
+    padding: 5px 5px 5px 5px;
+    position: relative;
+    border-radius: 4px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.ui-btn-inner{
+	background: url("images/stripes.png") 0 0 repeat;
+}
+
+/*Progres Bar*/
+#barpercen-txt{
+	font-size: 11.5px;
+	margin-right: 5%;
+	color: #fdcf08;
+}
+
+#progressbar{
+	background:#282828;
+	max-width:95%;
+	min-width: 100px;
+	height:10px;
+	border:5px solid #282828;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	box-shadow: 0px 5px 17px rgba(40, 40, 40, 0.5);
+}
+
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden;
+}
+
+.ui-progressbar .ui-progressbar-value {
+	height: 100%;
+	/*fullmoon*/
+
+	position: relative;
+	border-radius: 4px;
+	-webkit-transition: 0.4s linear;
+	-moz-transition: 0.4s linear;
+	-o-transition: 0.4s linear;
+	transition: 0.4s linear;
+	-webkit-transition-property: width, background-color;
+	-moz-transition-property: width, background-color;
+	-o-transition-property: width, background-color;
+	transition-property: width, background-color;
+	-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.ui-progressbar:before, .ui-progressbar:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.ui-progressbar:before {
+  bottom: 0;
+  /*background: url("images/stripes.png") 0 0 repeat;*/
+  border-radius: 4px 4px 0 0;
+}
+
+.ui-progressbar .ui-progressbar-overlay {
+	background: url("") 0 0 repeat;
+	height: 100%;
+	filter: alpha(opacity=25);
+	opacity: 0.25;
+}
+.ui-progressbar-value {
+	background-image: none;
+}
+
+.barA {
+  background-color: #B9F933;
+}
+
+.barB {
+  background-color: #F9EA33;
+}
+.barC {
+  background-color: #FC931F;
+}
+.barD {
+  background-color: #FA3732;
+}
+
+/* Header */
+
+a.header{
+	background: #252525;
+	border-bottom: 1px solid #484848;
+	text-shadow: 0 1px 0 #000;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+.g{
+    color: #07BAFE;
+}
+.y{
+	border-top: 5px solid #fdcf08;
+	color: #fdcf08;
+}
+.b{
+	border-top: 5px solid #3291D6;
+	color: #3291D6;
+}
+.r{
+	border-top: 5px solid #FD0000;
+	color: #FD0000;
+}
+.w{
+	border-top: 5px solid #F3F3F3;
+	color: #F3F3F3;
+}
+.z{
+	border-top: 5px solid #94A2E2;
+	color: #94A2E2;
+}
+.header.ui-header-fixed:not(.ui-fixed-hidden) {
+	border-top-width: 4px;
+	padding-top: 0;
+}
+
+h2 span, h3 span{
+	color: #B7B7B7;
+}
+/* Footer*/
+.footer{
+	background: #252525;
+	border-bottom: 1px solid #e0e0e0;
+	color: #B7B7B7;
+	text-shadow: 0 1px 0 #000;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	box-shadow: 0 0 5px rgba(0,0,0,.15);
+}
+
+
+/* Custom styling for the popup */
+.confirm {
+    border: 1px solid;
+    border-color: #044062; /* Fallback for older browsers */
+    border-color: rgba(4,64,98,.4);
+    background: #456f9a; /* Fallback for older browsers */
+    background: rgba(69,111,154,.8);
+    -moz-box-shadow: 0 2px 6px rgba(69,111,154,.5), inset 0 1px rgba(255,255,255,.3), inset 0 6px rgba(255,255,255,.1), inset 0 10px 20px rgba(255,255,255,.25), inset 0 -15px 30px rgba(69,111,154,.3);
+    -webkit-box-shadow: 0 2px 6px rgba(69,111,154,.5), inset 0 1px rgba(255,255,255,.3), inset 0 6px rgba(255,255,255,.1), inset 0 10px 20px rgba(255,255,255,.25), inset 0 -15px 30px rgba(69,111,154,.3);
+    box-shadow: 0 2px 6px rgba(69,111,154,.5), inset 0 1px rgba(255,255,255,.3), inset 0 6px rgba(255,255,255,.1), inset 0 10px 20px rgba(255,255,255,.25), inset 0 -15px 30px rgba(69,111,154,.3);
+    max-width: 250px;
+}
+.confirm p {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.6);
+    margin-bottom: .75em;
+}
+/* Make the buttons inherit the popup border-radius (.ui-corner-all) */
+.confirm div, .confirm .ui-btn-corner-all {
+    -webkit-border-radius: inherit;
+    border-radius: inherit;
+}
+.confirm #cancel {
+    background-image: none;
+}
+.confirm .topic.ui-li-desc {
+    font-size: inherit; /* The cloned topic will have class ui-li-desc so we negate the font-size settings of this class */
+    text-align: center;
+}
+
+/*tabel===============*/
+/*#movie-table{
+	background-color: #bbb;
+	border: 4px solid red;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	box-shadow: 0 0 10px rgba(0,0,0,.15);
+	color: #fff;
+	text-shadow:#515151 0 1px 5px;
+}*/
+
+/*These apply across all breakpoints because they are outside of a media query */
+table{
+	font-size: 15px;
+}
+table.phone-compare thead th {
+    background-color: #fff;
+
+}	
+/*table.phone-compare thead th h4 {
+    text-transform: uppercase;
+    font-size: 0.6em;
+    margin: 0;
+}*/
+table.phone-compare thead th h3 {
+    font-size: .9em;
+    margin: .4em 0 .8em 0;
+    color: #003359;
+}
+table.phone-compare th.label {
+    text-transform: uppercase;
+    font-size: 0.6em;
+    opacity: 0.5;
+    padding: 1.2em .8em;
+    background-color: #ddd;
+}
+table.phone-compare th.inv {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #353535 ;
+    font-weight: bold;
+    padding: 1.2em .8em;
+    background-color: #94A2E2;
+}
+table.phone-compare th.yes {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #353535 ;
+    font-weight: bold;
+    padding: 1.2em .8em;
+    background-color: #97FF2F;
+}
+table.phone-compare th.no {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #353535 ;
+    font-weight: bold;
+    padding: 1.2em .8em;
+    background-color: #FF7D7D;
+}
+table.phone-compare tbody tr.photos td {
+    background-color: #B7D0FF;
+    padding: 10px;
+}
+table.phone-compare tbody tr.photos img {
+    max-width: 100%;
+    min-width: 60px;
+}
+/*  Use the target selector to style the column chooser button */
+a[href="#phone-table-popup"] {
+    margin-bottom: 1.2em;
+}
+/* Show priority 1 at 320px (20em x 16px) */
+@media screen and (min-width: 20em) {
+    .phone-compare th.ui-table-priority-1,
+    .phone-compare td.ui-table-priority-1 {
+        display: table-cell;
+    }
+}
+/* Show priority 2 at 560px (35em x 16px) */
+@media screen and (min-width: 35em) {
+    .phone-compare th.ui-table-priority-2,
+    .phone-compare td.ui-table-priority-2 {
+        display: table-cell;
+    }
+}
+/* Show priority 3 at 720px (45em x 16px) */
+@media screen and (min-width: 45em) {
+    .phone-compare th.ui-table-priority-3,
+    .phone-compare td.ui-table-priority-3 {
+        display: table-cell;
+    }
+}
+/* Manually hidden */
+.phone-compare th.ui-table-cell-hidden,
+.phone-compare td.ui-table-cell-hidden {
+    display: none;
+}
+/* Manually shown */
+.phone-compare th.ui-table-cell-visible,
+.phone-compare td.ui-table-cell-visible {
+    display: table-cell;
+}
