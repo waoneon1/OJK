@@ -23,6 +23,24 @@ class database{
         mysqli_close($con);
     }
 
+    function insert($tbl, $value){
+
+      $con = $this->db_connect();
+      $values="";$i=1;
+      foreach ($value as $key => $val) {
+        if(count($value)!=$i){
+          $values .= "\"".$val."\", ";
+        } else {
+          $values .= "\"".$val."\" ";
+        } 
+        $i++;
+      }
+      $proses = "INSERT INTO $tbl VALUES ($values)";
+      //echo $sets."----";
+      //echo $proses."</br>";
+      $re = mysqli_query($con,$proses);
+      return($re);
+    }
   
    //============================================================================================================================///
     function login($user, $pass){

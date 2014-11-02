@@ -105,18 +105,17 @@ background-repeat:no-repeat;
 <?php include("database.php"); 
 		$database = new database;
 		$con = $database->db_connect();
-		$pross = "select max(Kode_Transaksi) as kode from tb_transaksi";
+		$pross = "select max(Kode_Transaksi) as kode from tb_permintaanbrg";
 		$result = mysqli_query($con, $pross); 
 		$row = mysqli_fetch_array($result);
 
 
 		$pemecahan	=	explode("T", $row['kode']);
-		print_r($pemecahan);
 		$penulisan	=	$pemecahan[1];
-		echo $penulisan;
 		$tulis = $penulisan+1;
-		echo "icus ".$tulis;
 		
+		$pross_br = "select * from tb_barang";
+		$result_br = mysqli_query($con, $pross_br); 
 		/*
 		
 		$pemecahan	=	substr($array_sql_kode_paling_terakhir[kode_terbesar],2,5);
@@ -157,7 +156,7 @@ background-repeat:no-repeat;
         
         
 		<div data-role="content">
-  <form method="post" action="controller.php"><!-- data-ajax="false" -->
+  <form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
   <ul data-role="listview" data-theme="d">
   <li>
   <h2 align="center" >Permintaan Barang</h2>
@@ -167,13 +166,23 @@ background-repeat:no-repeat;
     <tr><td>Kode Transaksi</td><td>:</td><td><input name="Kode_Transaksi" type="text"  readonly value="<?php echo $hasil; ?>"  /></td></tr>
     <tr> <td> NIP </td> <td> :</td><td><input type="text" name="NIP" size="50" value="<?php echo $_SESSION['niplg']?>" readonly></td></tr>
     <tr><td> Nama</td><td>:</td><td><input type="text" name="Nama" size="50" value="<?php echo $_SESSION['Nama']?>" readonly></td></tr>
-    <tr><td>Nama Barang</td><td>:</td><td><div id="suggest">
-				   <input type="search" onKeyUp="suggest(this.value);" name="Jenis_Barang"  onBlur="fill();" id="nama" size="70" placeholder="Nama Barang"/><input type="text" name="Kode_Barang"  readonly="readonly" onBlur="fill2();" id="kode"  size="15" placeholder="Kode Barang"/> 
-				   <div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="arrow.png" style="position: relative; top: -12px; left: 30px;" alt="" />
-				   <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
-				   </div>
-			  </div></td></tr>
-    <tr><td>Jumlah Permintaan</td><td>:</td><td><input type="number" min="1" name="Jumlah_Permintaan" /></td></tr>
+    <!-- 	 -->
+     <tr><td>Barang</td><td>:</td><td><ul data-role="listview" data-filter="true"  data-filter-reveal="true" data-filter-placeholder="Search fruits..." data-inset="true">
+    <?php while($row = mysqli_fetch_array($result_br)){ ?>
+    <li>
+    	<input type="checkbox" data-mini="true" name="<?php echo $row['Kode_Barang']; ?>" id="<?php echo $row['Kode_Barang']; ?>">
+       	<label for="<?php echo $row['Kode_Barang']; ?>"><?php echo $row['Jenis_Barang']; ?></label>
+ 
+    <div style="width:50px;">
+    <label for="<?php echo $row['Kode_Barang']; ?>">Jumlah Permintaan:</label>
+    	<input data-mini="true" type="number" min="1" name="<?php echo $row['Kode_Barang']; ?>" />
+    
+	    
+	</li>
+    	<!-- <li><a href="home.php?'.$row['Kode_Barang'].'">'.$row['Jenis_Barang'].'</a></li> -->
+    	
+    <?php } ?>
+</ul></td></tr>
     </table>
   
    
