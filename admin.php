@@ -105,41 +105,16 @@ background-repeat:no-repeat;
 <?php include("database.php"); 
 		$database = new database;
 		$con = $database->db_connect();
-		$pross = "select max(Kode_Transaksi) as kode from tb_transaksi";
+		$pross = "	select tb_permintaanbrg.*, user.Nama, tb_barang.Jenis_Barang, tb_barang.Stok_Barang, tb_barang.Keterangan
+					from tb_permintaanbrg 
+					INNER JOIN user
+					ON tb_permintaanbrg.NIP=user.niplg
+					INNER JOIN tb_barang
+					ON tb_permintaanbrg.Kode_Barang=tb_barang.Kode_Barang;
+					";
 		$result = mysqli_query($con, $pross); 
-		$row = mysqli_fetch_array($result);
-
-
-		$pemecahan	=	explode("T", $row['kode']);
-		print_r($pemecahan);
-		$penulisan	=	$pemecahan[1];
-		echo $penulisan;
-		$tulis = $penulisan+1;
-		echo "icus ".$tulis;
 		
-		/*
-		
-		$pemecahan	=	substr($array_sql_kode_paling_terakhir[kode_terbesar],2,5);
-		$tulis		=	$pemecahan + 1;
-		*/
-		if($tulis <= 9) 
-		{
-			$hasil	=	"T000".$tulis;
-		} 
-		else if($tulis <= 99)
-		{
-			$hasil = "T00".$tulis;
-		}
-		else if($tulis <= 999)
-		{
-			$hasil = "T0".$tulis;
-		}
-		else if($tulis <= 9999)
-		{
-			$hasil = "T".$tulis;
-		}
-			
-			
+						
 ?>
 
 
@@ -156,31 +131,25 @@ background-repeat:no-repeat;
         </div>
         
         
-		<div data-role="content">
-  <form method="post" action="controller.php"><!-- data-ajax="false" -->
-  <ul data-role="listview" data-theme="d">
-  <li>
-  <h2 align="center" >Permintaan Barang</h2>
- 
-    <table>
-    <tr><td><?php $tgl=date('l, d-M-Y'); echo $tgl; ?></td></tr>
-    <tr><td>Kode Transaksi</td><td>:</td><td><input name="Kode_Transaksi" type="text"  readonly value="<?php echo $hasil; ?>"  /></td></tr>
-    <tr> <td> NIP </td> <td> :</td><td><input type="text" name="NIP" size="50" value="<?php echo $_SESSION['niplg']?>" readonly></td></tr>
-    <tr><td> Nama</td><td>:</td><td><input type="text" name="Nama" size="50" value="<?php echo $_SESSION['Nama']?>" readonly></td></tr>
-    <tr><td>Nama Barang</td><td>:</td><td><div id="suggest">
-				   <input type="search" onKeyUp="suggest(this.value);" name="Jenis_Barang"  onBlur="fill();" id="nama" size="70" placeholder="Nama Barang"/><input type="text" name="Kode_Barang"  readonly="readonly" onBlur="fill2();" id="kode"  size="15" placeholder="Kode Barang"/> 
-				   <div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="arrow.png" style="position: relative; top: -12px; left: 30px;" alt="" />
-				   <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
-				   </div>
-			  </div></td></tr>
-    <tr><td>Jumlah Permintaan</td><td>:</td><td><input type="number" min="1" name="Jumlah_Permintaan" /></td></tr>
-    </table>
+	<div data-role="content">
+  	<form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
   
-   
-    <input type="submit" data-icon="check" name="btn_permintaanbrg" value="Submit" data-mini="true" data-inline="true" data-theme="a"></td></tr>
-  
-    </li>
-  </ul>
+  	<ul data-role="listview" data-inset="true">
+	<?php 
+	$nama = "";
+	while($row = mysqli_fetch_array($result)) { 
+		if ($nama != $row['Nama']):
+			echo '<li data-role="list-divider" data-theme="a">'.$row['Nama'].'<span class="ui-li-count">'.$row['Tanggal_Permintaan'].'</span></li>';
+			$nama = $row['Nama'];
+		endif ?>
+    <li><a href="#">
+    	<h2>Kode Transaksi : <?php echo $row['Kode_Transaksi']; ?></h2>
+        <p><strong><?php echo $row['Jenis_Barang']; ?></strong></p>
+        <p><?php echo "Jumlah ".$row['Jumlah_Permintaan']." ".$row['Keterangan']; ?></p>
+   		<a href="#purchase" data-rel="popup" data-position-to="window" data-icon="delete">Pending</a>
+    </a></li>
+    <?php }  ?>
+	</ul>
   </form>
 </div>
 
@@ -191,7 +160,7 @@ background-repeat:no-repeat;
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">
 			<div data-role="navbar">
                 <ul>
-                    <li><a href="menu/record/" data-icon="grid" data-ajax="false" data-theme="a">Report</a></li>
+                    <li><a href="#" data-icon="grid" data-ajax="false" data-theme="a">Permintaan</a></li>
                     <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
                 </ul>
             </div>
