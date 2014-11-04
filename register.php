@@ -83,7 +83,7 @@ mysqli_close($con);
 <body>
 <div data-role="page" >
 <div data-role="header" class="header w">
-  <h2><span>Registrasi</span></h2>
+  <h2><span>Form Persetujuan</span></h2>
   <a href="index.php" data-ajax="false" data-role="button" data-theme="d" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext">back</a>
 </div>
 

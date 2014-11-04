@@ -15,6 +15,9 @@
 						$key,
 						$value,
 						date('Y-m-d'),
+						'',
+						'',
+						''
 					);
 					$add_data = $database->insert($tbl, $request);
 			}
