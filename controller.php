@@ -1,28 +1,43 @@
 <?php
 	include ("database.php");
-	$con=new database;
-	if (isset($_POST['btn_permintaanbrg'])) {
-		
-	$kodetrans=$_POST['Kode_Transaksi'];
-	$nip=$_POST['NIP'];
-	$Nama=$_POST['Nama'];
-	$nmbrg=$_POST['Jenis_Barang'];
-	$kodebrg=$_POST['Kode_Barang'];
-	$jmlpermintaan=$_POST['Jumlah_Permintaan'];
-	$tgl= date('Y-m-d');
 	
-	
-			$query= "insert into tb_transaksi(id,Kode_Transaksi,NIP,Nama,Tanggal_Permintaan) values('','$kodetrans','$nip','$Nama','$tgl')";
-			
-			$query1="insert into tb_permintaanbrg (id,Kode_Transaksi,Kode_Barang,Jenis_Barang,Jumlah_Permintaan, Tanggal_Permintaan) values('','$kodetrans','$kodebrg', '$nmbrg','$jmlpermintaan','$tgl')";
-			$qry=mysql_query($query);
-			$qry1=mysql_query($query1);
-	
-			echo "<script type='text/javascript'>".
-            //"alert('value exceed budget limit');".
-            "window.location = 'home.php';".
-            "</script> ";
+	if(isset($_POST['btn_permintaanbrg'])) {
+		$tbl="tb_permintaanbrg";
+	$i = 0;
+	$database = new database;
+	foreach ($_POST as $key => $value) {
+		if(!empty($value)  && $value != 'Submit'){
+			$data[$key] = $value;
+			if($i >= 3){
+					$request = array(	"",
+						$data['NIP'],
+						$data['Kode_Transaksi'],
+						$key,
+						$value,
+						date('Y-m-d'),
+						'',
+						'',
+						''
+					);
+					$add_data = $database->insert($tbl, $request);
+			}
+		$i++;
+		}
 	}
+
 	
+	
+	if($add_data == true){
+		 echo "<script type='text/javascript'>".
+              "alert('Permintaan Telah Berhasil dikirim');".
+              "window.location = 'home.php';".
+              "</script> ";  
+	} else {
+		 echo "<script type='text/javascript'>".
+              "alert('Permintaan Gagal');".
+              "window.location = 'home.php';".
+              "</script> ";  
+	}
+}
 
 ?>

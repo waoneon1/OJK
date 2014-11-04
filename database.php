@@ -23,7 +23,44 @@ class database{
         mysqli_close($con);
     }
 
-  
+    function insert($tbl, $value){
+
+      $con = $this->db_connect();
+      $values="";$i=1;
+      foreach ($value as $key => $val) {
+        if(count($value)!=$i){
+          $values .= "\"".$val."\", ";
+        } else {
+          $values .= "\"".$val."\" ";
+        } 
+        $i++;
+      }
+      $proses = "INSERT INTO $tbl VALUES ($values)";
+      //echo $sets."----";
+      //echo $proses."</br>";
+      $re = mysqli_query($con,$proses);
+      return($re);
+    }
+    
+     function update($tbl, $set, $where){
+
+      $con = $this->db_connect();
+      $sets="";$i=1;
+      foreach ($set as $key => $val) {
+        if(count($set)!=$i){
+          $sets .= $key."=\"".$val."\", ";
+        } else {
+          $sets .= $key."=\"".$val."\" ";
+        } 
+        $i++;
+      }
+      $proses = "UPDATE $tbl SET $sets WHERE $where";
+      // echo $proses."</br>";
+     
+
+      return(mysqli_query($con,$proses));
+    }
+
    //============================================================================================================================///
     function login($user, $pass){
 
