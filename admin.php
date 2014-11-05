@@ -90,8 +90,8 @@
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">
 			<div data-role="navbar">
                 <ul>
-                    <li><a href="#" data-icon="grid" data-ajax="false" data-theme="a">Permintaan</a></li>
-                    <li><a href="#" data-icon="grid" data-ajax="false" data-theme="a">Stock Barang</a></li>
+                    <li><a href="#" data-icon="check" data-ajax="false" data-theme="a">Permintaan</a></li>
+                    <li><a href="admin_stok.php" data-icon="grid" data-ajax="false" data-theme="a">Stock Barang</a></li>
                     <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
                 </ul>
             </div>
