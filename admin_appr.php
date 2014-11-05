@@ -24,6 +24,7 @@ $con = $database->db_connect();
 //====================================================
 /*var_dump($_POST);
 var_dump($_SESSION);*/
+
 if (isset($_POST['button']) && $_POST['button'] == 'Approve') {
 
   if ($_POST['stok'] >= $_POST['jml_permintaan']) {
@@ -31,7 +32,7 @@ if (isset($_POST['button']) && $_POST['button'] == 'Approve') {
     $tbl_br = "tb_barang";
 
     $where = "id=\"".$_POST['id']."\"";
-    $where_br = "id=\"".$_POST['kodeBr']."\"";
+    $where_br = "Kode_Barang=\"".$_POST['kodeBr']."\"";
 
     $set = array(
             'NIP_Admin' => $_SESSION['niplg'],

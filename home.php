@@ -71,7 +71,7 @@
         
 		<div data-role="content">
   <form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
-  <ul data-role="listview" data-theme="d">
+  <ul data-role="listview" data-theme="c">
   <li>
   <h2 align="center" >Permintaan Barang</h2>
  
@@ -80,9 +80,9 @@
     <tr><td>Kode Transaksi</td><td>:</td><td><input name="Kode_Transaksi" type="text"  readonly value="<?php echo $hasil; ?>"  /></td></tr>
     <tr> <td> NIP </td> <td> :</td><td><input type="text" name="NIP" size="50" value="<?php echo $_SESSION['niplg']?>" readonly></td></tr>
     <tr><td> Nama</td><td>:</td><td><input type="text" name="Nama" size="50" value="<?php echo $_SESSION['Nama']?>" readonly></td></tr>
-    <!-- 	 -->
+    <!-- 	 --><tr><td></td><td></td><td>&nbsp</td></tr>
      <tr><td>Barang</td><td>:</td><td><ul data-role="listview" data-filter="true"  data-filter-reveal="true" data-filter-placeholder="Cari Barang..." data-inset="true">
-    <?php while($row = mysqli_fetch_array($result_br)){ ?>
+    <?php while($row = mysqli_fetch_array($result_br, MYSQLI_ASSOC)){ ?>
     <li>
     	<input type="checkbox" data-mini="true" name="<?php echo $row['Kode_Barang']; ?>" id="<?php echo $row['Kode_Barang']; ?>">
        	<label for="<?php echo $row['Kode_Barang']; ?>"><?php echo $row['Jenis_Barang']; ?></label>
@@ -92,11 +92,10 @@
     	<input data-mini="true" type="number" min="1" name="<?php echo $row['Kode_Barang']; ?>" />
     
 	    
-	</li>
     	<!-- <li><a href="home.php?'.$row['Kode_Barang'].'">'.$row['Jenis_Barang'].'</a></li> -->
     	
     <?php } ?>
-</ul></td></tr>
+	</td></tr>
     </table>
   
    
@@ -114,7 +113,8 @@
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">
 			<div data-role="navbar">
                 <ul>
-                    <li><a href="menu/record/" data-icon="grid" data-ajax="false" data-theme="a">Report</a></li>
+                    <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+                    <li><a href="acc.php" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
                     <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
                 </ul>
             </div>
