@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2014 at 03:09 PM
+-- Generation Time: Nov 05, 2014 at 08:55 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -28,19 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `tb_barang` (
 `No` int(11) NOT NULL,
-  `Kode_Barang` int(11) DEFAULT NULL,
+  `Kode_Barang` int(11) NOT NULL,
   `Jenis_Barang` varchar(255) DEFAULT NULL,
   `Keterangan` varchar(255) DEFAULT NULL,
   `Stok_Barang` int(10) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=108 ;
 
 --
 -- Dumping data for table `tb_barang`
 --
 
 INSERT INTO `tb_barang` (`No`, `Kode_Barang`, `Jenis_Barang`, `Keterangan`, `Stok_Barang`) VALUES
-(1, 452001, 'Kertas Surat ukuran A4 berlogo OJK 80 gram (Warna)', 'Rim', 20),
-(2, 452002, 'Kertas Surat ukuran A4 berlogo OJK 80 gram (Abu - Abu)', 'Rim', 20),
+(1, 452001, 'Kertas Surat ukuran A4 berlogo OJK 80 gram (Warna)', 'Rim', 49),
+(2, 452002, 'Kertas Surat ukuran A4 berlogo OJK 80 gram (Abu - Abu)', 'Rim', 2),
 (3, 452003, 'Kertas Surat ukuran Folio berlogo OJK 80 gram', 'Rim', 20),
 (4, 452004, 'Kertas Surat ukuran Folio berlogo OJK 70 gram', 'Rim', 20),
 (5, 452005, 'Sampul surat ukuran 11 cm x 23,5 Cm berlogo OJK', 'Lembar', 20),
@@ -209,7 +209,7 @@ INSERT INTO `user` (`id`, `NIP`, `Pass`, `Nama`, `Level`, `niplg`) VALUES
 -- Indexes for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
- ADD PRIMARY KEY (`No`);
+ ADD PRIMARY KEY (`No`), ADD UNIQUE KEY `Kode_Barang` (`Kode_Barang`);
 
 --
 -- Indexes for table `tb_permintaanbrg`
@@ -231,7 +231,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tb_barang`
 --
 ALTER TABLE `tb_barang`
-MODIFY `No` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
+MODIFY `No` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=108;
 --
 -- AUTO_INCREMENT for table `tb_permintaanbrg`
 --

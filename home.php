@@ -81,7 +81,7 @@
     <tr> <td> NIP </td> <td> :</td><td><input type="text" name="NIP" size="50" value="<?php echo $_SESSION['niplg']?>" readonly></td></tr>
     <tr><td> Nama</td><td>:</td><td><input type="text" name="Nama" size="50" value="<?php echo $_SESSION['Nama']?>" readonly></td></tr>
     <!-- 	 -->
-     <tr><td>Barang</td><td>:</td><td><ul data-role="listview" data-filter="true"  data-filter-reveal="true" data-filter-placeholder="Search fruits..." data-inset="true">
+     <tr><td>Barang</td><td>:</td><td><ul data-role="listview" data-filter="true"  data-filter-reveal="true" data-filter-placeholder="Cari Barang..." data-inset="true">
     <?php while($row = mysqli_fetch_array($result_br)){ ?>
     <li>
     	<input type="checkbox" data-mini="true" name="<?php echo $row['Kode_Barang']; ?>" id="<?php echo $row['Kode_Barang']; ?>">

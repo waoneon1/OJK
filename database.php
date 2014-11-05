@@ -37,7 +37,7 @@ class database{
       }
       $proses = "INSERT INTO $tbl VALUES ($values)";
       //echo $sets."----";
-      //echo $proses."</br>";
+     // echo $proses."</br>";
       $re = mysqli_query($con,$proses);
       return($re);
     }
@@ -55,10 +55,10 @@ class database{
         $i++;
       }
       $proses = "UPDATE $tbl SET $sets WHERE $where";
-      echo $proses."</br>"; exit;
+     // echo $proses."</br>"; exit;
      
 
-      //return(mysqli_query($con,$proses));
+      return(mysqli_query($con,$proses));
     }
 
    //============================================================================================================================///
