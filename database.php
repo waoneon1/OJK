@@ -55,10 +55,10 @@ class database{
         $i++;
       }
       $proses = "UPDATE $tbl SET $sets WHERE $where";
-      // echo $proses."</br>";
+      echo $proses."</br>"; exit;
      
 
-      return(mysqli_query($con,$proses));
+      //return(mysqli_query($con,$proses));
     }
 
    //============================================================================================================================///

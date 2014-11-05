@@ -38,7 +38,7 @@
 		    $appr = $database->update($tbl, $set, $where); 
 		} 
 			$pross = "	SELECT tb_permintaanbrg.*, user.Nama, 
-					tb_barang.Jenis_Barang, tb_barang.Stok_Barang, tb_barang.Keterangan, tb_barang.Stok_Barang
+					tb_barang.Jenis_Barang, tb_barang.Stok_Barang, tb_barang.Keterangan
 					FROM tb_permintaanbrg 
 					INNER JOIN user
 					ON tb_permintaanbrg.NIP=user.niplg
@@ -91,6 +91,7 @@
 			<div data-role="navbar">
                 <ul>
                     <li><a href="#" data-icon="grid" data-ajax="false" data-theme="a">Permintaan</a></li>
+                    <li><a href="#" data-icon="grid" data-ajax="false" data-theme="a">Stock Barang</a></li>
                     <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
                 </ul>
             </div>
