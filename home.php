@@ -86,12 +86,12 @@
     <li>
     	<input type="checkbox" data-mini="true" name="<?php echo $row['Kode_Barang']; ?>" id="<?php echo $row['Kode_Barang']; ?>">
        	<label for="<?php echo $row['Kode_Barang']; ?>"><?php echo $row['Jenis_Barang']; ?></label>
- 
-    <div style="width:50px;">
-    <label for="<?php echo $row['Kode_Barang']; ?>">Jumlah Permintaan:</label>
-    	<input data-mini="true" type="number" min="1" name="<?php echo $row['Kode_Barang']; ?>" />
-    
-	    
+ 	
+
+	    <label for="<?php echo $row['Kode_Barang']; ?>">Jumlah Permintaan:</label>
+		<input data-mini="true" type="number" min="1" name="<?php echo $row['Kode_Barang']; ?>" />
+		<span>Stok Saat ini : <?php echo $row['Stok_Barang']; ?></span>
+
     	<!-- <li><a href="home.php?'.$row['Kode_Barang'].'">'.$row['Jenis_Barang'].'</a></li> -->
     	
     <?php } ?>

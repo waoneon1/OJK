@@ -92,7 +92,7 @@ if (isset($_POST['button']) && $_POST['button'] == 'Approve') {
 <div data-role="page" >
 <div data-role="header" class="header w">
   <h2><span>Form Persetujuan</span></h2>
-  <a href="index.php" data-ajax="false" data-role="button" data-theme="d" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext">back</a>
+  <a href="admin.php" data-ajax="false" data-role="button" data-theme="d" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext">back</a>
 </div>
 
 <div data-role="content">
@@ -103,6 +103,11 @@ if (isset($_POST['button']) && $_POST['button'] == 'Approve') {
     <div data-role="fieldcontain">
         <label for="jenbar">Jenis Barang</label>
        <td> <input type="text" name="jenbar" id="jenbar"  value="<?php echo $row['Jenis_Barang']; ?>" data-mini="true" readonly>
+    </div>
+
+    <div data-role="fieldcontain">
+       <label for="stok">Stok Barang</label>
+       <td> <input type="text" name="stok" id="stok"  value="<?php echo $row['Stok_Barang']; ?>" data-mini="true" readonly>
     </div>
 
     <input type="hidden" name="id" id="id"  value="<?php echo $row['id']; ?>" data-mini="true">

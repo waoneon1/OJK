@@ -124,6 +124,7 @@
     	<h2><?php echo $row['Jenis_Barang']; ?></h2>
         <p><strong><?php echo $row['Nama']; ?></strong></p>
         <p><?php echo "Jumlah ".$row['Jumlah_Permintaan']." ".$row['Keterangan']; ?></p>
+   		<span class="ui-li-count ui-btn-up-f"> Stok <?php echo $row['Stok_Barang']; ?></span>
    		<a href="admin.php?approve=<?php echo $row['id']; ?>" data-ajax="false" data-position-to="window" data-icon="check">Approve</a>
     </a></li>
     <?php }  ?>
