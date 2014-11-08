@@ -29,6 +29,7 @@
 					ON tb_permintaanbrg.Kode_Barang=tb_barang.Kode_Barang
 					WHERE tb_permintaanbrg.NIP = $nip;
 					";
+
 		$result = mysqli_query($con, $pross); 
 		while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)) {  	
 		    $row[] = $data;
@@ -59,11 +60,12 @@
         
         
 	<div data-role="content">
-  	<form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
+  	<form method="post" action="pdf.php" data-ajax="false"><!-- data-ajax="false" -->
+
   	<ul data-role="listview" data-theme="c">
   	<li>
   	<h2 align="center" >Permintaan Barang</h2>
- 	
+  	
 
 	<?php foreach ($kode as $key => $kodeVal) { ?>
  	<table data-role="table" id="phone-table" data-mode="columntoggle" data-column-btn-text="List" data-column-btn-theme="c" class="phone-compare ui-shadow table-stroke">
@@ -77,8 +79,16 @@
       	</tr>
     </thead>
     <tbody>
+    	<input type="hidden" name="nip" id="nip"  value="<?php echo $row[0]['NIP']; ?>" data-mini="true">
+	    <input type="hidden" name="nama" id="nama"  value="<?php echo $row[0]['Nama']; ?>" data-mini="true">
     	<?php 
-    	foreach ($row as $key => $value) { 
+    	foreach ($row as $key => $value) { ?>
+	    <input type="hidden" name="kodeP[]" id="kodeP"  value="<?php echo $value['Kode_Barang']; ?>" data-mini="true">
+	    <input type="hidden" name="namaP[]" id="namaP"  value="<?php echo $value['Jenis_Barang']; ?>" data-mini="true">
+	    <input type="hidden" name="jmlP[]" id="jmlP"  value="<?php echo $value['Jml_Disetujui']; ?>" data-mini="true">
+	    <input type="hidden" name="ketP[]" id="ketP"  value="<?php echo $value['Keterangan']; ?>" data-mini="true">
+	    <input type="hidden" name="stat[]" id="stat"  value="<?php echo $value['Status']; ?>" data-mini="true">
+    	<?php
     	if ($kodeVal['Kode_Transaksi'] == $value['Kode_Transaksi']) { 
 	    echo '<tr style="background-color:#C2D8ED;">';
 	    	echo '<td>'.$value['Jenis_Barang'].'</td>';
