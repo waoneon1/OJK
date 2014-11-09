@@ -1,42 +1,33 @@
+<?php include("login.php"); ?>
 <?php
-//============================================================+
-// File name   : example_048.php
-// Begin       : 2009-03-20
-// Last Update : 2013-05-14
-//
-// Description : Example 048 for TCPDF class
-//               HTML tables and table headers
-//
-// Author: Nicola Asuni
-//
-// (c) Copyright:
-//               Nicola Asuni
-//               Tecnick.com LTD
-//               www.tecnick.com
-//               info@tecnick.com
-//============================================================+
-
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: HTML tables and table headers
- * @author Nicola Asuni
- * @since 2009-03-20
- */
-
-// Include the main TCPDF library (search for installation path).
 
 require_once('tcpdf/tcpdf.php');
 
 // create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$page_format = array(
+    'MediaBox' => array ('llx' => 0, 'lly' => 0, 'urx' => 210, 'ury' => 145),
+    //'CropBox' => array ('llx' => 0, 'lly' => 0, 'urx' => 210, 'ury' => 297),
+    //'BleedBox' => array ('llx' => 5, 'lly' => 5, 'urx' => 205, 'ury' => 292),
+    //'TrimBox' => array ('llx' => 10, 'lly' => 10, 'urx' => 200, 'ury' => 287),
+    //'ArtBox' => array ('llx' => 15, 'lly' => 15, 'urx' => 195, 'ury' => 282),
+    'Dur' => 3,
+    'trans' => array(
+        'D' => 1.5,
+        'S' => 'Split',
+        'Dm' => 'V',
+        'M' => 'O'
+    ),
+    'Rotate' => 0,
+    'PZ' => 1,
+);
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, /*PDF_PAGE_FORMAT*/$page_format , true, 'UTF-8', false);
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 048');
-$pdf->SetSubject('TCPDF Tutorial');
-$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetAuthor('waoneon1');
+$pdf->SetTitle('Pdf Transaksi');
+$pdf->SetSubject('');
+$pdf->SetKeywords('TCPDF, PDF');
 
 // set default header data
 
@@ -72,7 +63,7 @@ $pdf->SetFont('helvetica', 'B', 20);
 // add a page
 $pdf->AddPage();
 
-$pdf->SetFont('helvetica', '', 15);
+$pdf->SetFont('helvetica', '', 12);
 
 // -----------------------------------------------------------------------------
 
@@ -92,7 +83,7 @@ EOD;
 
 $pdf->writeHTML($tbl, true, false, false, false, '');
 
-$pdf->SetFont('helvetica', '', 13);
+$pdf->SetFont('helvetica', '', 10);
 
 // -----------------------------------------------------------------------------
 
@@ -102,11 +93,11 @@ $tbl = '
 <table>
 <tr>
   <th align="left" width="80">NIP</th>
-  <th align="left" > : '.$_POST['nip'].'</th>
+  <th align="left" > : '.$_SESSION['niplg'].'</th>
 </tr>
 <tr>
   <th align="left" width="80">Nama</th>
-  <th align="left"> : '.$_POST['nama'].'</th>
+  <th align="left"> : '.$_SESSION['Nama'].'</th>
 </tr>
 </table>
 ';
@@ -114,7 +105,7 @@ $tbl = '
 $pdf->writeHTML($tbl, true, false, false, false, '');
 
 
-$pdf->SetFont('helvetica', '', 13);
+$pdf->SetFont('helvetica', '', 10);
 
 // -----------------------------------------------------------------------------
 
@@ -135,15 +126,15 @@ $tbl = '
 ';
 
 $i = 0; $no = 1;
-foreach ($_POST['kodeP'] as $key => $value) {
-if ($_POST['stat'][$i] == '1') {
+foreach ($_SESSION['data'][$_GET['id']] as $key => $value) {
+if ($value['Status'] == '1') {
   $tbl .= '
     <tr>
       <th align="center">'.$no.'</th>
-      <th align="center">'.$value.'</th>
-      <th align="center">'.$_POST['namaP'][$i].'</th>
-      <th align="center">'.$_POST['jmlP'][$i].'</th>
-      <th align="center">'.$_POST['ketP'][$i].'</th>
+      <th align="center">'.$value['Kode_Barang'].'</th>
+      <th align="center">'.$value['Jenis_Barang'].'</th>
+      <th align="center">'.$value['Jml_Disetujui'].'</th>
+      <th align="center">'.$value['Keterangan'].'</th>
     </tr>
     ';
 $no++;
@@ -165,10 +156,7 @@ $tbl = '
   <th>&nbsp;</th>
   <th>&nbsp;</th>
 </tr>
-<tr>
-  <th>&nbsp;</th>
-  <th>&nbsp;</th>
-</tr>
+
 </table>
 ';
 
@@ -193,12 +181,8 @@ $tbl = '
   <th>&nbsp;</th>
 </tr>
 <tr>
-  <th>&nbsp;</th>
-  <th>&nbsp;</th>
-</tr>
-<tr>
   <th align="center">Nama</th>
-  <th align="center">'.$_POST['nama'].'</th>
+  <th align="center">'.$_SESSION['Nama'].'</th>
 </tr>
 </table>
 ';

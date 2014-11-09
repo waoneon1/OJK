@@ -1,32 +1,31 @@
+<?php include("login.php");?>
 <?php
 	include ("database.php");
 	
 	if(isset($_POST['btn_permintaanbrg'])) {
-		$tbl="tb_permintaanbrg";
+	/*echo "<pre>";
+	print_r($_SESSION['data']); exit;*/
+
+	$data = $_SESSION['data'];
+	$tbl="tb_permintaanbrg";
 	$i = 0;
 	$database = new database;
-	foreach ($_POST as $key => $value) {
-		if(!empty($value)  && $value != 'Submit'){
-			$data[$key] = $value;
-			if($i >= 3){
-					$request = array(	"",
-						$data['NIP'],
-						$data['Kode_Transaksi'],
-						$key,
-						$value,
-						date('Y-m-d'),
-						'',
-						'',
-						''
-					);
-					$add_data = $database->insert($tbl, $request);
-			}
-		$i++;
-		}
+	foreach ($data as $key => $v) {
+		$request = array('',
+			$v[1],
+			$v[2],
+			$v[3],
+			$v[4],
+			$v[5],
+			'',
+			'',
+			''
+		);
+		$add_data = $database->insert($tbl, $request);
 	}
 
 	
-	
+	unset($_SESSION['data']);
 	if($add_data == true){
 		 echo "<script type='text/javascript'>".
               "alert('Permintaan Telah Berhasil dikirim');".

@@ -12,8 +12,6 @@
 	<link rel="stylesheet"  href="css/finance.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="js/highcharts/highcharts.js"></script>
-	<script src="js/highcharts/modules/exporting.js"></script>
    
 </head>
 <?php include("database.php"); 
@@ -66,11 +64,9 @@
 		</div>
         <div id="log">
             <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?></h2>
-        </div>
-        
-        
+        </div>        
 		<div data-role="content">
-  <form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
+  <form method="post" action="preview.php" data-ajax="false"><!-- data-ajax="false" -->
   <ul data-role="listview" data-theme="c">
   <li>
   <h2 align="center" >Permintaan Barang</h2>
@@ -92,22 +88,17 @@
 		<input data-mini="true" type="number" min="1" name="<?php echo $row['Kode_Barang']; ?>" />
 		<span>Stok Saat ini : <?php echo $row['Stok_Barang']; ?></span>
 
-    	<!-- <li><a href="home.php?'.$row['Kode_Barang'].'">'.$row['Jenis_Barang'].'</a></li> -->
-    	
+    	<!-- <li><a href="home.php?'.$row['Kode_Barang'].'">'.$row['Jenis_Barang'].'</a></li> -->   	
     <?php } ?>
 	</td></tr>
     </table>
-  
-   
-    <input type="submit" data-icon="check" name="btn_permintaanbrg" value="Submit" data-mini="true" data-inline="true" data-theme="a"></td></tr>
+
+    <input type="submit" data-icon="check" name="btn_permintaanbrg" value="Check" data-mini="true" data-inline="true" data-theme="a"></td></tr>
   
     </li>
   </ul>
   </form>
 </div>
-
-
-
 
 <?php //} ?>
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">

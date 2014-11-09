@@ -12,8 +12,6 @@
 	<link rel="stylesheet"  href="css/finance.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="js/highcharts/highcharts.js"></script>
-	<script src="js/highcharts/modules/exporting.js"></script>
    
 </head>
 <?php include("database.php"); 
@@ -60,13 +58,13 @@
         
         
 	<div data-role="content">
-  	<form method="post" action="pdf.php" data-ajax="false"><!-- data-ajax="false" -->
+  	<!-- data-ajax="false" -->
 
   	<ul data-role="listview" data-theme="c">
   	<li>
   	<h2 align="center" >Permintaan Barang</h2>
   	
-
+  	<?php unset($_SESSION['data']); ?>
 	<?php foreach ($kode as $key => $kodeVal) { ?>
  	<table data-role="table" id="phone-table" data-mode="columntoggle" data-column-btn-text="List" data-column-btn-theme="c" class="phone-compare ui-shadow table-stroke">
     <thead>
@@ -78,18 +76,29 @@
       		<th>Status</th>
       	</tr>
     </thead>
-    <tbody>
-    	<input type="hidden" name="nip" id="nip"  value="<?php echo $row[0]['NIP']; ?>" data-mini="true">
-	    <input type="hidden" name="nama" id="nama"  value="<?php echo $row[0]['Nama']; ?>" data-mini="true">
+    <tbody>    	
+    	<!-- <input type="hidden" name="nip" id="nip"  value="<?php echo $row[0]['NIP']; ?>" data-mini="true">
+	    <input type="hidden" name="nama" id="nama"  value="<?php echo $row[0]['Nama']; ?>" data-mini="true"> -->
     	<?php 
-    	foreach ($row as $key => $value) { ?>
+    	foreach ($row as $key => $value) { 
+    	
+    	/*?>
 	    <input type="hidden" name="kodeP[]" id="kodeP"  value="<?php echo $value['Kode_Barang']; ?>" data-mini="true">
 	    <input type="hidden" name="namaP[]" id="namaP"  value="<?php echo $value['Jenis_Barang']; ?>" data-mini="true">
 	    <input type="hidden" name="jmlP[]" id="jmlP"  value="<?php echo $value['Jml_Disetujui']; ?>" data-mini="true">
 	    <input type="hidden" name="ketP[]" id="ketP"  value="<?php echo $value['Keterangan']; ?>" data-mini="true">
 	    <input type="hidden" name="stat[]" id="stat"  value="<?php echo $value['Status']; ?>" data-mini="true">
-    	<?php
+    	<?php*/
     	if ($kodeVal['Kode_Transaksi'] == $value['Kode_Transaksi']) { 
+    	$_SESSION['data'][$kodeVal['Kode_Transaksi']][] = array
+    	(
+    		'Kode_Barang' => $value['Kode_Barang'], 
+			'Jenis_Barang' => $value['Jenis_Barang'], 
+			'Jml_Disetujui' => $value['Jml_Disetujui'], 
+			'Keterangan' => $value['Keterangan'], 
+			'Status' => $value['Status']
+
+    	);
 	    echo '<tr style="background-color:#C2D8ED;">';
 	    	echo '<td>'.$value['Jenis_Barang'].'</td>';
 	    	echo '<td style="background-color:#FFDED5;">'.$value['Jumlah_Permintaan']." ".$value['Keterangan'].'</td>';
@@ -104,17 +113,20 @@
     	} } ?>
 	    <tr>
 	        <td colspan="4">
-	        <input type="submit" data-icon="check" name="submit" value="Download Form Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?>" data-mini="true" data-theme="a">
+	        	<a href="pdf.php?id=<?php echo $kodeVal['Kode_Transaksi']; ?>" data-ajax="false" data-role="button" data-mini="true" data-theme="a" data-icon="check">Download Form Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?></a>
 	        </td>
 	    </tr>
+  	
     </tbody>
 	</table>
-	<?php } ?>
+	<?php } 
+	/*echo "<pre>";
+    print_r($_SESSION); exit;*/
+	?>
 	
   
  	</li>
   	</ul>
-  	</form>
 	</div>
 
 	<div data-role="footer" data-position="fixed" data-id="mainfoot">

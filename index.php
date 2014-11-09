@@ -26,8 +26,6 @@
 	<link rel="stylesheet"  href="css/finance.css">
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="js/highcharts/highcharts.js"></script>
-	<script src="js/highcharts/modules/exporting.js"></script>
 </head>
 <body>
 	<div data-role="page" class="loginform">	

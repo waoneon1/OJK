@@ -13,7 +13,9 @@
   <script type="text/javascript">
    
 </script>
-  <?php include("database.php");?>
+  <?php 
+  include("database.php");
+  ?>
 </head>
 <?php 
 $database = new database;
@@ -43,11 +45,15 @@ if (isset($_POST['button']) && $_POST['button'] == 'Approve') {
             'Stok_Barang' => $sisaBarang
              );
 
-    $stok = $database->update($tbl_br, $set_br, $where_br); 
+    //$stok = $database->update($tbl_br, $set_br, $where_br); 
     
-    if ($stok === true) {
-        $appr = $database->update($tbl, $set, $where); 
-        if ($appr === true) {
+    if (/*$stok === */true) {
+        //$appr = $database->update($tbl, $set, $where); 
+        if (/*$appr === */true) {
+            include("email.php");
+            $sisa = $_POST['stok'] * 100 / $MAX;
+            sendmail($sisa);
+            exit;
             echo "<script type='text/javascript'>".
               "alert('Permintaan Telah Berhasil disetujui');".
               "window.location = 'admin.php';".

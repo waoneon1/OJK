@@ -61,6 +61,20 @@ class database{
       return(mysqli_query($con,$proses));
     }
 
+    /**
+   * delete data pada tabel $tbl
+   *
+   * @param string $tbl, tabel dari parameter id yang akan di delete
+   * @param string $column, kolom dari parameter yang akan di delete
+   * @param string $del, parameter yang akan di delete
+   */
+    function delete($tbl, $column, $del){
+       $con = $this->db_connect();
+       $del = mysqli_query($con,"DELETE FROM $tbl WHERE $column=\"$del\"");
+       //echo "DELETE FROM $tbl WHERE $column=$del";
+       return $del;
+    }
+
    //============================================================================================================================///
     function login($user, $pass){
 
