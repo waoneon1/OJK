@@ -53,17 +53,20 @@
 <div data-role="page" >
 <div data-role="header" class="header w">
   <h2><span>Preview</span></h2>
-  <a href="admin.php" data-ajax="false" data-role="button" data-theme="d" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext">back</a>
+  <a href="home	.php" data-ajax="false" data-role="button" data-theme="d" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext">back</a>
 </div>
 
 <div data-role="content">
   <form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
-  	<table border="1">
+  	<table border="1" data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
+  	<thead>
 		<tr>
 			<th>Kode Barang</th>
 			<th>Nama Barang</th>
 			<th>Jumlah</th>
 		</tr>
+	</thead>
+	<tbody>
 		<?php foreach ($prev_data as $key => $value) {
 		$pross = " SELECT Jenis_Barang
 			FROM tb_barang 
@@ -75,10 +78,14 @@
 			<tr>
 			<td>'.$value[0].'</td>
 			<td>'.$data['Jenis_Barang'].'</td>
-			<td>'.$value[1].'</td>
+			<td>
+       		<label for="jml"></label>
+      		<input type="number" name="jml[]" id="jml"  value="'.$value[1].'" data-mini="true">
+    		</td>
 			</tr>
 		';
 		} ?>
+	</tbody>
 	</table>
 	<input type="submit" data-icon="check" name="btn_permintaanbrg" value="Submit" data-mini="true" data-inline="true" data-theme="a">
   </form>

@@ -129,10 +129,17 @@
         <table><tr><td>
 			<img src="image/ojk.png" /></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>
             <img src="image/judul.png" /></td></tr></table>
-           
+           	<div data-role="navbar"  data-iconpos="left">
+                <ul>
+                    <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+                    <li><a href="admin_stok.php" data-icon="check" data-ajax="false" data-theme="a">Stock Barang</a></li>
+                    <li><a href="admin_histori.php" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
+                    <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
+                </ul>
+            </div>
 		</div>
         <div id="log">
-            <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?></h2>
+            <h2 class="g"> <span>Welcsome, </span> <?php echo $_SESSION['Nama']; ?></h2>
         </div>
         
         
@@ -151,7 +158,7 @@
 
   	if ($a['min'] == 0): ?>
   	<div data-role="collapsible" data-mini="true" data-theme="b" data-content-theme="a" data-inset="false">
-  	<h4><?php echo "Kode Transaksi ".$tran['Kode_Transaksi']." [".'<span style = "color:#FFE840;">'.$tran['Tanggal_Permintaan'].'</span>'."]"?></h4>
+  	<h4><?php echo "Kode Transaksi ".$tran['Kode_Transaksi']." [".'<span style = "color:#FFE840;">'.date('d F Y', strtotime($tran['Tanggal_Permintaan'])).'</span>'."]"?></h4>
 	  	<ul data-role="listview" data-inset="true">
 		<?php 
 		foreach ($rowz as $key => $row) {
@@ -185,14 +192,7 @@
  	</form>
 </div>
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">
-			<div data-role="navbar">
-                <ul>
-                    <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
-                    <li><a href="admin_stok.php" data-icon="check" data-ajax="false" data-theme="a">Stock Barang</a></li>
-                    <li><a href="admin_histori.php" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
-                    <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
-                </ul>
-            </div>
+			
 		</div>	
 	</div>
 </body>

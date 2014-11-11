@@ -50,7 +50,14 @@
     <table><tr><td>
 		<img src="image/ojk.png" /></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>
         <img src="image/judul.png" /></td></tr></table>
-       
+       	<div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="home.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+                <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
+                 <li><a href="stok.php" data-icon="home" data-ajax="false" data-theme="a">Stok Barang</a></li>
+                <li><a href="logout.php" data-icon="home" data-ajax="false" data-theme="a">Logout</a></li>
+            </ul>
+        </div>
 	</div>
     <div id="log">
         <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?></h2>
@@ -113,7 +120,7 @@
     	} } ?>
 	    <tr>
 	        <td colspan="4">
-	        	<a href="pdf.php?id=<?php echo $kodeVal['Kode_Transaksi']; ?>" data-ajax="false" data-role="button" data-mini="true" data-theme="a" data-icon="check">Download Form Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?></a>
+	        	<a href="pdf.php?id=<?php echo $kodeVal['Kode_Transaksi']; ?>" data-inline="true" data-ajax="false" data-role="button" data-mini="true" data-theme="a" data-icon="check">Download Form Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?></a>
 	        </td>
 	    </tr>
   	

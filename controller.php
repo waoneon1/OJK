@@ -4,7 +4,9 @@
 	
 	if(isset($_POST['btn_permintaanbrg'])) {
 	/*echo "<pre>";
-	print_r($_SESSION['data']); exit;*/
+	print_r($_SESSION['data']); 
+	print_r($_POST);	
+	exit;*/
 
 	$data = $_SESSION['data'];
 	$tbl="tb_permintaanbrg";
@@ -15,15 +17,16 @@
 			$v[1],
 			$v[2],
 			$v[3],
-			$v[4],
+			$_POST['jml'][$i],
 			$v[5],
 			'',
 			'',
 			''
 		);
+		echo "<pre>";
+		$i++;
 		$add_data = $database->insert($tbl, $request);
 	}
-
 	
 	unset($_SESSION['data']);
 	if($add_data == true){

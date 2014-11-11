@@ -69,10 +69,21 @@
     <table><tr><td>
 		<img src="image/ojk.png" /></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>
         <img src="image/judul.png" /></td></tr></table>
-       
+       	<div data-role="navbar"  data-iconpos="left">
+            <ul>
+                <li><a href="home.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+                <li><a href="admin_stok.php" data-icon="check" data-ajax="false" data-theme="a">Stock Barang</a></li>
+                <li><a href="#" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
+                <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
+            </ul>
+        </div>
 	</div>
 	<div data-role="content">
   	<form method="post" action="controller.php" data-ajax="false"><!-- data-ajax="false" -->
+  	<label for="user" class="select">Pilih User</label>
+	<select name="user" id="user" data-mini="true" data-inline="true">
+	    <option value="standard">Standard: 7 day</option>
+	</select
   	<?php 
   	$nama = "";
   	/*echo "<pre>";
@@ -98,7 +109,7 @@
 		        <p><strong><?php echo 'Nama : '.$row['Nama']; ?></strong></p>
 		        <p><?php echo "Jumlah : ".$row['Jumlah_Permintaan']." ".$row['Keterangan']; ?></p>
 		        <p><?php echo "Yang Meyetujui : ".$adm[$row['NIP_Admin']]; ?></p>
-		   		<span class="ui-li-count ui-btn-up-f"><?php echo $row['Tanggal_Permintaan']; ?></span>
+		   		<span class="ui-li-count ui-btn-up-f"><?php echo date('d F Y', strtotime($row['Tanggal_Permintaan'])); ?></span>
 		   	</li>
 		    <?php
 			}
@@ -114,14 +125,6 @@
 </div>
 
 	<div data-role="footer" data-position="fixed" data-id="mainfoot">
-		<div data-role="navbar">
-            <ul>
-                <li><a href="home.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
-                <li><a href="admin_stok.php" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
-                <li><a href="#" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
-                <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
-            </ul>
-        </div>
 	</div>	
 	</div>
 </body>

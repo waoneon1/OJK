@@ -56,17 +56,25 @@
 
 <body>
 	<div data-role="page" class="bd">	
+	<form method="post" action="preview.php" data-ajax="false"><!-- data-ajax="false" -->
 		<div data-role="header" class="header" data-theme="c">
         <table><tr><td>
 			<img src="image/ojk.png" /></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>
             <img src="image/judul.png" /></td></tr></table>
-           
+           	<div data-role="navbar" data-iconpos="left">
+                <ul>
+                    <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+                    <li><a href="acc.php" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
+                    <li><a href="stok.php" data-icon="home" data-ajax="false" data-theme="a">Stok Barang</a></li>
+                    <li><a href="logout.php" data-icon="home" data-ajax="false" data-theme="a">Logout</a></li>
+                </ul>
+            </div>
 		</div>
         <div id="log">
             <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?></h2>
         </div>        
 		<div data-role="content">
-  <form method="post" action="preview.php" data-ajax="false"><!-- data-ajax="false" -->
+  
   <ul data-role="listview" data-theme="c">
   <li>
   <h2 align="center" >Permintaan Barang</h2>
@@ -93,23 +101,18 @@
 	</td></tr>
     </table>
 
-    <input type="submit" data-icon="check" name="btn_permintaanbrg" value="Check" data-mini="true" data-inline="true" data-theme="a"></td></tr>
-  
+    
+  	
     </li>
   </ul>
-  </form>
+ 
 </div>
 
 <?php //} ?>
 		<div data-role="footer" data-position="fixed" data-id="mainfoot">
-			<div data-role="navbar">
-                <ul>
-                    <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
-                    <li><a href="acc.php" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
-                    <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
-                </ul>
-            </div>
+			<input type="submit" data-icon="check" name="btn_permintaanbrg" value="Check" data-mini="true" data-inline="true" data-theme="a"></td></tr>
 		</div>	
+		 </form>
 	</div>
 </body>
 </html>

@@ -18,8 +18,8 @@ function sendmail($time_since){
 		$mail->Port = 587;
 		$mail->SMTPDebug = 2;
 		$mail->SMTPAuth = true; // turn on SMTP authentication
-		$mail->Username = "ebdesk.autoscraper@gmail.com"; // SMTP username
-		$mail->Password = "ebdeskrahasia"; // SMTP password 
+		$mail->Username = "berusaha5758@gmail.com"; // SMTP username
+		$mail->Password = "loplop009"; // SMTP password 
  
 		$mail->From     = "ebdesk.autoscraper@gmail.com";
 		$email= "waone.on1@gmail.com";
@@ -42,6 +42,7 @@ function sendmail($time_since){
 	}
 
 
-
-sendmail(5);
+$a = sendmail("BOLE LA");
+echo "<pre>";
+print_r($a);
 ?>
