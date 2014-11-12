@@ -54,7 +54,7 @@ include("database.php");
     <a href="admin_tmbBarang.php" data-ajax="false" data-role="button" data-theme="a" data-icon="plus" data-iconpos="notext" >Tambah Barang Baru</a>    
 	   <div data-role="navbar"  data-iconpos="left">
         <ul>
-            <li><a href="home.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
+            <li><a href="admin.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
             <li><a href="#" data-icon="check" data-ajax="false" data-theme="a">Stock Barang</a></li>
             <li><a href="admin_histori.php" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
             <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
@@ -64,7 +64,7 @@ include("database.php");
   <div id="log">
       <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?> 
       <a data-ajax = "false" href="admin_pdf.php">
-      <img src="image/Printer.ico" style="float:right; margin-right:20px;">
+      <img src="image/pdf.png" style="float:right; margin-right:20px;">
       </a>
       </h2>
   </div>
