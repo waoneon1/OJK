@@ -1,4 +1,4 @@
-
+<?php include("login.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +26,7 @@ if (isset($_POST['reg'])) {
                     $_POST['Pass'], 
                     $_POST['Nama'],
                     $_POST['Level'],
-					$_POST['NIP']
+          $_POST['NIP']
                   );
     
  // $ret = insert($tbl, $values);

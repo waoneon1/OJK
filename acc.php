@@ -73,9 +73,11 @@
   	
   	<?php unset($_SESSION['data']); ?>
 	<?php foreach ($kode as $key => $kodeVal) { ?>
+	<div data-role="collapsible" data-mini="true" data-theme="a" data-content-theme="b" data-inset="true">
+	<h4>Kode Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?></h4> 	
  	<table data-role="table" id="phone-table" data-mode="columntoggle" data-column-btn-text="List" data-column-btn-theme="c" class="phone-compare ui-shadow table-stroke">
     <thead>
-      	<tr><th colspan="4">Kode Transaksi <?php echo $kodeVal['Kode_Transaksi']; ?></th></tr>
+      	
       	<tr>
       		<th>Jenis Barang</th>
       		<th>Jumlah Permintaan</th>
@@ -89,13 +91,6 @@
     	<?php 
     	foreach ($row as $key => $value) { 
     	
-    	/*?>
-	    <input type="hidden" name="kodeP[]" id="kodeP"  value="<?php echo $value['Kode_Barang']; ?>" data-mini="true">
-	    <input type="hidden" name="namaP[]" id="namaP"  value="<?php echo $value['Jenis_Barang']; ?>" data-mini="true">
-	    <input type="hidden" name="jmlP[]" id="jmlP"  value="<?php echo $value['Jml_Disetujui']; ?>" data-mini="true">
-	    <input type="hidden" name="ketP[]" id="ketP"  value="<?php echo $value['Keterangan']; ?>" data-mini="true">
-	    <input type="hidden" name="stat[]" id="stat"  value="<?php echo $value['Status']; ?>" data-mini="true">
-    	<?php*/
     	if ($kodeVal['Kode_Transaksi'] == $value['Kode_Transaksi']) { 
     	$_SESSION['data'][$kodeVal['Kode_Transaksi']][] = array
     	(
@@ -126,6 +121,7 @@
   	
     </tbody>
 	</table>
+	</div>
 	<?php } 
 	/*echo "<pre>";
     print_r($_SESSION); exit;*/
@@ -137,13 +133,7 @@
 	</div>
 
 	<div data-role="footer" data-position="fixed" data-id="mainfoot">
-		<div data-role="navbar">
-            <ul>
-                <li><a href="home.php" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
-                <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Disetujui</a></li>
-                <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
-            </ul>
-        </div>
+		
 	</div>	
 	</div>
 </body>

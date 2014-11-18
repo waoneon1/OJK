@@ -64,7 +64,7 @@ include("database.php");
   <div id="log">
       <h2 class="g"> <span>Welcome, </span> <?php echo $_SESSION['Nama']; ?> 
       <a data-ajax = "false" href="admin_pdf.php">
-      <img src="image/pdf.png" style="float:right; margin-right:20px;">
+      <img src="image/pdf-button.png" style="float:right; margin-right:20px;">
       </a>
       </h2>
   </div>

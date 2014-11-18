@@ -19,21 +19,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>OJK</title>
-	<link rel="stylesheet"  href="css/jquery.mobile-1.3.2.css">
-	<link rel="stylesheet"  href="css/finance.css">
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OJK</title>
+    <link rel="stylesheet"  href="css/jquery.mobile-1.3.2.css">
+    <link rel="stylesheet"  href="css/finance.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
 </head>
 <body>
-	<div data-role="page" class="loginform">	
-	<div data-role="header" class="header">
+    <div data-role="page" class="loginform">    
+    <div data-role="header" class="header">
     <p><?php //print_r($log); ?></p>
-	</div>	
-	<div data-role="content">
-	<!-- <img src="image/bg.jpg" alt=""> -->
+    </div>  
+    <div data-role="content">
+    <!-- <img src="image/bg.jpg" alt=""> -->
         <?php if (!isset($_SESSION['id'])) { ?>
         <div data-role="controlgroup" id="popupLogin" data-theme="b">
             <form action="index.php" method="post" data-ajax="false">
@@ -52,7 +52,7 @@
 
                 </div>
             </form>
-            <a href="register.php" style="float:right; font-size:11px; margin-right:10px; color:#373737;">register</a>
+            <!-- <a href="register.php" style="float:right; font-size:11px; margin-right:10px; color:#373737;">register</a> -->
         </div>
         <?php } ?>
         
@@ -70,10 +70,10 @@
             "window.location = 'admin.php';".
             "</script> ";
         } ?>
-		</div>
-	<div data-role="footer" data-position="fixed" data-id="mainfoot">
-	</div>	
-	</div>
+        </div>
+    <div data-role="footer" data-position="fixed" data-id="mainfoot">
+    </div>  
+    </div>
 </body>
 </html>
 

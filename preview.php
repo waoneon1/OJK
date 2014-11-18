@@ -1,12 +1,11 @@
 <?php include("login.php");?>
 <?php
-	unset($_SESSION['data']);
+	//unset($_SESSION['data']);
 	include("database.php"); 
 	$database = new database;
 	$con = $database->db_connect();
 	
-	
-
+	$add_data = array();
 	if(isset($_POST['btn_permintaanbrg'])) {
 		$tbl="tb_permintaanbrg";
 		$i = 0;
@@ -25,7 +24,7 @@
 							'',
 							''
 						);
-						$add_data[] = $request;
+						$add_data[$key] = $request;
 						$prev_data[] =$prev;
 				}
 			$i++;
@@ -61,29 +60,54 @@
   	<table border="1" data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
   	<thead>
 		<tr>
-			<th>Kode Barang</th>
+			<th>Kode Barang</th>	
 			<th>Nama Barang</th>
-			<th>Jumlah</th>
+			<th colspan="2">Jumlah</th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($prev_data as $key => $value) {
+		<?php 
+		//if (isset($_GET['id'])) {
+			//print_r($_SESSION);
+		//	foreach ($variable as $key => $value) {
+				# code...
+			//}
+			//	unset($_SESSION['data'][$_GET['id']]);
+		//}
+		
+		//print_r($prev_data);
+		/*echo "<pre>";	
+				print_r($_SESSION['data']);*/
+		$i=0;
+		foreach ($_SESSION['data'] as $key => $value) {
+		if (isset($_GET['id'])) {
+			if( $value[3] == $_GET['id'] ){
+				//echo $_SESSION['data'][$i];
+				unset($_SESSION['data'][$value[3]]);
+				 echo "<script type='text/javascript'>".
+	              "window.location = 'preview.php';".
+	              "</script> ";  
+			}
+		}
+		
 		$pross = " SELECT Jenis_Barang
 			FROM tb_barang 
-			Where Kode_Barang =".$value[0];
+			Where Kode_Barang =".$value[3];
 		$result = mysqli_query($con, $pross); 	
 	  	$data = mysqli_fetch_array($result, MYSQLI_ASSOC);	
 
 		echo '
 			<tr>
-			<td>'.$value[0].'</td>
+			<td>'.$value[3].'</td>
 			<td>'.$data['Jenis_Barang'].'</td>
 			<td>
        		<label for="jml"></label>
-      		<input type="number" name="jml[]" id="jml"  value="'.$value[1].'" data-mini="true">
+      		<input type="number" name="jml[]" id="jml"  value="'.$value[4].'" data-mini="true"></td>
+      		<td><a href="preview.php?id='.$value[3].'" data-role="button" data-iconpos="notext" data-icon="delete">ramove</a>
     		</td>
 			</tr>
 		';
+		$i++;
 		} ?>
 	</tbody>
 	</table>

@@ -15,6 +15,7 @@
    
 </head>
 <?php include("database.php"); 
+		unset($_SESSION['datax']);
 		$database = new database;
 		$con = $database->db_connect();
 		
@@ -134,6 +135,7 @@
                     <li><a href="#" data-icon="home" data-ajax="false" data-theme="a">Permintaan</a></li>
                     <li><a href="admin_stok.php" data-icon="check" data-ajax="false" data-theme="a">Stock Barang</a></li>
                     <li><a href="admin_histori.php" data-icon="edit" data-ajax="false" data-theme="a">Histori</a></li>
+                    <li><a href="register.php" data-icon="gear" data-ajax="false" data-theme="a">Add User</a></li>
                     <li><a href="logout.php" data-icon="delete" data-ajax="false" data-theme="a">Logout</a></li>
                 </ul>
             </div>
@@ -158,11 +160,18 @@
 
   	if ($a['min'] == 0): ?>
   	<div data-role="collapsible" data-mini="true" data-theme="b" data-content-theme="a" data-inset="false">
-  	<h4><?php echo "Kode Transaksi ".$tran['Kode_Transaksi']." [".'<span style = "color:#FFE840;">'.date('d F Y', strtotime($tran['Tanggal_Permintaan'])).'</span>'."]"?></h4>
+  	<?php 
+  	foreach ($rowz as $key => $value): 
+  		if ($tran['Kode_Transaksi'] == $value['Kode_Transaksi']) {
+  			$nama = $value['Nama'];
+  		}
+  	endforeach ?>
+  	<h4><?php echo "Kode Transaksi ".$tran['Kode_Transaksi']." [".'<span style = "color:#FFE840;">'.$nama/*date('d F Y', strtotime($tran['Tanggal_Permintaan']))*/.'</span>'."]"?></h4>
 	  	<ul data-role="listview" data-inset="true">
 		<?php 
 		foreach ($rowz as $key => $row) {
-		if ($tran['Kode_Transaksi'] == $row['Kode_Transaksi']) {
+		if ($tran['Kode_Transaksi'] == $row['Kode_Transaksi']) {	
+		 
 		?>
 	    <li><a href="admin_appr.php?ids=<?php echo $row['id']; ?>">
 	    	<h2><?php echo $row['Jenis_Barang']." / ".$row['Kode_Barang']; ?></h2>
@@ -184,7 +193,11 @@
 		        </div>
 		    </div>
 		</div><!-- /popup -->
-	    <?php }}  ?>
+	    <?php }
+	    } 
+	   	$_SESSION['datax'] = $rowz;
+	    ?>
+	    <a href="admin_ok_all.php?id=<?php echo $tran['Kode_Transaksi']; ?>" type="submit" data-mini="true" data-shadow="false" data-theme="e" data-ajax="false">Aprove All</a>
 		</ul>
 	</div>	
   	<?php endif ?>

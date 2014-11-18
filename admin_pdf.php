@@ -79,8 +79,16 @@ include("database.php");
   while($data = mysqli_fetch_array($result, MYSQLI_ASSOC)) {    
     $row[] = $data;
   } 
-
 $tbl =  '
+<table>
+<tr>
+  <th align="center">
+  STOK BARANG<br>
+  '.date("d M Y").'<br>   
+  </th>
+</tr>
+</table>';
+$tbl .=  '
 <table border="1">
 <tr>
   <th align="center" width="30">No</th>

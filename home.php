@@ -14,7 +14,9 @@
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
    
 </head>
-<?php include("database.php"); 
+<?php 
+unset($_SESSION['data']);
+include("database.php"); 
 		$database = new database;
 		$con = $database->db_connect();
 		$pross = "select max(Kode_Transaksi) as kode from tb_permintaanbrg";
